@@ -1,0 +1,5 @@
+@mixin hover-effect {
+    opacity: 90%;
+    transform: scale(1.2);
+    transition-duration: 500ms;
+}

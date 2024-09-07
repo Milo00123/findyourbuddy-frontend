@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import logo from '../../Assets/Logo/Find your Buddy (6).png'
 
 
+
 function Login() {
     const navigate = useNavigate()
 

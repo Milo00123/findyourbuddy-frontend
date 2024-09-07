@@ -1,10 +1,4 @@
-@keyframes color_change {
-	0% { border-color: blue; }
-25% { border-color: orange; }
-50% { border-color: yellow; }
-75% { border-color: green; }
-100% { border-color: red; }
-}
+@use '../../Styles/Partials/Styles' as *;
 
 .login-container{
     width: 100%;
@@ -13,7 +7,7 @@
     align-items: center;
     flex-direction: column;
     background-color: #1b82b1	;
-    background: linear-gradient(180deg, #1d2727, #202028);
+    background: $buddy-background;
 
     
     
@@ -30,8 +24,7 @@
 }
 .login-form{
     background-color:#1b82b1;
-    background: linear-gradient(180deg, #1d2727, #202028);
-
+    background: $buddy-background;
     width: 150px;
     display: flex;
     align-items: center;
@@ -39,7 +32,7 @@
     border:1px solid green;
     animation: color_change 3s infinite;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    box-shadow: $buddy-shadow;
 }
 
 .input-login{
@@ -51,26 +44,26 @@
     margin-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    box-shadow: $buddy-shadow;
     cursor: pointer;
 }
 .login-button:hover{
-    opacity: 90%;
+    @include hover-effect;
     font-size: 15px;
-    transform: scale(1.2);
-    transition-duration: 500ms;
+ 
 }
 .login-button{
     width: 200px;
     height: 40px;
     font-weight: 600;
     border-radius: 60px;
-    background: linear-gradient(180deg, #040404, #5c5d5d);
+    background: $btn-color;
     color: #fafafa;
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+   box-shadow: $buddy-shadow;
+    
 }
 
 .show-password-container{
