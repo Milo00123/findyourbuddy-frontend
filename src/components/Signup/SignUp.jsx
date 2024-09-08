@@ -18,34 +18,32 @@ const [success, setSuccess] = useState(null);
   const mustUpperCase = /[A-Z]/;
   const mustNumber = /\d/;
   const mustSymbol = /[!@#$%^&*(),.?":{}|<>]/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const formValidation = () => {
-  const errors = {}; // Initialize the correct object to store errors
+  const errors = {}; 
 
-  // Check if all fields are empty
   if (!userName && !lastName && !email && !password && !confirmPassword) {
-    errors.allFields = 'All fields are required';
-    return errors;  // If all fields are empty, return immediately to avoid other error checks
+    errors.allFields = '🫠 All fields are required 🫠';
+    return errors; 
   }
-
-  // Individual field validation
-  if (!userName) errors.userName = 'Name is needed';
-  if (!lastName) errors.lastName = 'Last name is needed';
-  if (!email) errors.email = 'Email is needed';
-
-  // Password validation
+  if (!userName) errors.userName = ' Name is needed 🤪';
+  if (!lastName) errors.lastName = ' Last name is needed 🫣';
+  if (!email){errors.email = ' Email is needed   😜'; 
+  } else if (!emailRegex.test(email)) {
+    errors.email = 'Enter a valid email address 🫢';
+  }
   if (!password) {
-    errors.password = 'Password is needed';
+    errors.password = ' Password is needed 😝';
   } else {
-    // Check password strength only if password is not empty
+
     if (!mustUpperCase.test(password)) errors.password = 'Password must contain an uppercase letter';
     if (!mustNumber.test(password)) errors.password = 'Password must contain a number';
     if (!mustSymbol.test(password)) errors.password = 'Password must contain a special symbol';
   }
 
-  // Confirm password validation
   if (!confirmPassword) {
-    errors.confirmPassword = 'Please confirm your password';
+    errors.confirmPassword = 'Confirm your password 😛';
   } else if (password !== confirmPassword) {
     errors.confirmPassword = 'Passwords do not match';
   }
@@ -68,7 +66,7 @@ const formValidation = () => {
       password
     });
     if(response.useState === 201){
-      setSuccess('😄Account created!!😄')
+      setSuccess('😄 Account created!! 😄')
       localStorage.setItem('token', response.data.token)
       setTimeout(() => navigate('/'), 3000); 
     }  else {
@@ -88,16 +86,10 @@ const formValidation = () => {
 
   return (<>
     <div className='sign-up-container'>
-    {error && (
-          <div className="error">
-            {Object.values(error).map((err, index) => (
-              <p key={index}>{err}</p>
-            ))}
-          </div>
-        )}
+  
       <h1 className='sign-up-title'>Sign Up</h1>
-
-    
+      {success && <div className="success-message">{success}</div>}
+      {error.allFields && <div className="error">{error.allFields}</div>}
       <form  className='sign-up-form'
       onSubmit={hanbleSubmit}> 
         
@@ -107,7 +99,8 @@ const formValidation = () => {
             placeholder='Name'
             value={userName}
             onChange={(e) => setUsername(e.target.value)}
-            ></input><br></br>
+            ></input>
+             {error.userName && <div className="error">{error.userName}</div>}<br></br>
   
           <input
             className='input-sign-up'
@@ -115,7 +108,9 @@ const formValidation = () => {
             value={lastName}
             onChange={(e)=> setLastName(e.target.value)}
           
-            ></input><br></br>
+            ></input>
+             {error.lastName && <div className="error">{error.lastName}</div>}
+            <br></br>
   
           <input 
            className='input-sign-up'
@@ -123,7 +118,8 @@ const formValidation = () => {
            value={email}
            onChange={(e)=> setEmail(e.target.value)}
            
-           ></input><br></br>
+           ></input>
+            {error.email && <div className="error">{error.email}</div>}<br></br>
           
           <input 
            className='input-sign-up'
@@ -132,7 +128,8 @@ const formValidation = () => {
             value={password}
             onChange={(e)=> setPassword(e.target.value)}
           
-            ></input><br></br>
+            ></input>
+             {error.password && <div className="error">{error.password}</div>}<br></br>
   
           <input 
           className='input-sign-up' 
@@ -141,7 +138,8 @@ const formValidation = () => {
           value={confirmPassword}
           onChange={(e)=> setConfirmPassword(e.target.value)}
 
-          ></input><br></br>
+          ></input>
+           {error.confirmPassword && <div className="error">{error.confirmPassword}</div>}<br></br>
          
           <button type='submit' className='sign-in-button'>Sign Up</button>
       </form>
