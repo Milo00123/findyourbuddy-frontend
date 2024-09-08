@@ -19,6 +19,7 @@ function App() {
   <Routes>
     <Route path='/' element={<Login/>}/>
     <Route path='/sign-up' element={<SignUp/>}/>
+    <Route path='/pool' element={ < Pool />}/>
 
   </Routes>
   </BrowserRouter>

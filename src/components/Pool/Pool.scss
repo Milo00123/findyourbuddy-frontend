@@ -1,0 +1,143 @@
+@use '../../Styles/Partials/Styles' as *;
+.pool-container{
+    background-size: cover;
+    background-position: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.pool-title-container{
+    width: 100%;
+    padding-top: 20px;
+}
+.pool-title{
+    width: 280px;
+    margin: auto;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    border-radius: 6px;
+    color: #46c7e4;
+    background: linear-gradient(180deg, #1d2727, #202028);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:#46c7e4;
+    @include for-tablet{
+       padding-bottom: 0px;
+       padding-right: 20px;
+       padding-left: 20px;
+        width: fit-content;
+        height: 80px;
+        padding-top: 35px;
+        text-align: center;
+        font-size: 40px;
+    }
+}
+.pool-form{
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    border-radius: 6px;
+    
+    @include for-tablet{
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 60%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-color: #1b82b1;
+        padding-bottom: 50px;
+        
+    }
+ 
+}
+.pool-avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    box-shadow: 0px 2px 5px 0px #1b82b1;
+    @include for-tablet{
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+    }
+    @include for-desktop{
+        width: 160px;
+        height: 160px;
+        border-radius: 160px;
+    }
+}
+.pool-form-input{
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    background: linear-gradient(180deg, #1d2727, #202028);
+    border: none;
+    overflow: hidden;
+    @include for-tablet{
+        margin-top: 30px;
+    }
+
+}
+.pool-input{
+    width: 80%;
+    height: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #1b82b1 ;
+    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 0px 2px 5px 0px #1b82b1;
+        transform: scale(1.2);
+        transition-duration: 500ms;
+        }
+    @include for-tablet{
+        height: 40px;
+        width: 60%;
+    }
+    &__plan{
+        height: 50px;
+        @include for-tablet{
+            height: 70px;
+        }
+    }
+   
+}
+.pool-form-btn:hover{
+    box-shadow: 0px 2px 5px 0px #1b82b1;
+    transform: scale(1.2);
+    transition-duration: 500ms;
+}
+.pool-form-btn{
+    width: 80%;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #040404, #5c5d5d);
+    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    @include for-tablet{
+        margin-bottom: 30px;
+
+    }
+}

@@ -75,6 +75,7 @@ function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             ></input>
+
        <div className='show-password-container'>
           <input 
            className='input-login'
@@ -94,6 +95,7 @@ function Login() {
             {showPassword ? <PiEyeSlash/> :<PiEyeLight/> }
             </label>
           </div>
+          
           <button type='submit' className='login-button'>Login</button>
       </form>
       <h1 className='login-title'>or</h1>
