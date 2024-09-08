@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import './SignUp.scss';
+import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
+
+
 
 const URL = 'http://localhost:8080/sign-up';
 function SignUp() {
@@ -13,6 +16,7 @@ const [password, setPassword]= useState('');
 const [confirmPassword, setConfirmPassword]= useState('');
 const [error, setError] = useState({});
 const [success, setSuccess] = useState(null);
+const [showPassword, setShowPassword] = useState(false)
 
 
   const mustUpperCase = /[A-Z]/;
@@ -99,7 +103,8 @@ const formValidation = () => {
             placeholder='Name'
             value={userName}
             onChange={(e) => setUsername(e.target.value)}
-            ></input>
+            >
+            </input>
              {error.userName && <div className="error">{error.userName}</div>}<br></br>
   
           <input
@@ -120,25 +125,47 @@ const formValidation = () => {
            
            ></input>
             {error.email && <div className="error">{error.email}</div>}<br></br>
-          
+      <div className='show-password-container'>    
           <input 
            className='input-sign-up'
             placeholder='Enter a password'
-            type='password'
+            type={showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e)=> setPassword(e.target.value)}
           
             ></input>
+                <input
+            className='show-password'
+            type='checkbox'
+            id='show-password'
+            checked={showPassword}
+            onChange={(e) => setShowPassword(e.target.checked)}
+          />
+          <label className='eye-show-password' htmlFor='show-password'>
+            {showPassword ? <PiEyeSlash/> :<PiEyeLight/> }
+          </label>
+            </div>
              {error.password && <div className="error">{error.password}</div>}<br></br>
-  
+  <div className='show-password-container'>
           <input 
           className='input-sign-up' 
           placeholder='Confirm your Password'
-          type='password'
+          type={showPassword ? 'text' : 'password'}
           value={confirmPassword}
           onChange={(e)=> setConfirmPassword(e.target.value)}
 
           ></input>
+          <input
+            className='show-password'
+            type='checkbox'
+            id='show-password'
+            checked={showPassword}
+            onChange={(e) => setShowPassword(e.target.checked)}
+          />
+          <label className='eye-show-password' htmlFor='show-password'>
+            {showPassword ? <PiEyeSlash/> :<PiEyeLight/> }
+          </label>
+          </div>
            {error.confirmPassword && <div className="error">{error.confirmPassword}</div>}<br></br>
          
           <button type='submit' className='sign-in-button'>Sign Up</button>
