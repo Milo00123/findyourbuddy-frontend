@@ -37,18 +37,17 @@ const handleProfileSettings = (e)=> {
 
 }
 
-const handleLogout = (e) => {
-    e.preventDefault()
-
-    navigate('/');
-  };
+const handleLogout = () => {
+  localStorage.removeItem('token');  // Clear JWT token
+  navigate('/');  // Redirect to login page
+};
   
   
   const hiddenPaths = ['/', '/sign-up'];
       if (hiddenPaths.includes(location.pathname)) {
           return null;
       }
-
+ 
 
   return (<>
     <header>
@@ -83,12 +82,9 @@ const handleLogout = (e) => {
               >
               Profile Settings
             </NavLink>
-              <NavLink
-                onClick={handleLogout}
-                className={({ isVisible }) => `main-nav-container__link btn ${isVisible ? ' active' : ''}`}
-                >
-                Log Out
-              </NavLink>
+             <button onClick={handleLogout} className="main-nav-container__link btn">
+               Log Out
+              </button>
             </ul>
             
         

@@ -8,7 +8,7 @@ import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
 import { TbWashDryP } from 'react-icons/tb';
 
 
-const URl = 'http://localhost:8080/';
+const findyourbuddy = 'http://localhost:8080/';
 function Login() {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
@@ -44,13 +44,16 @@ function Login() {
         return;
       }
       try {
-        const response = await axios.post(`${URL}profile/login`, {
+        const response = await axios.post(`${findyourbuddy}profile/login`, {
           email: email,
           password: password
         });
+        const { token, userId } = response.data;
   
         if (response.data.success) {
-          navigate('/pool/'); // Change '/dashboard' to the desired route
+          localStorage.setItem('token', token);
+          localStorage.setItem('userId', userId);
+          navigate(`/pool/${userId}`); 
         } else {
           setError(response.data.message || 'Login failed');
         }

@@ -1,5 +1,6 @@
 import React from 'react'
 import './Pool.scss';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -7,10 +8,12 @@ import './Pool.scss';
 
 
 function Pool() {
+
+const {userId} = useParams();
   return (<>
     <div className='pool-container'>
     <div>
-        <h1 className='pool-title'>Welcome to the Pool !</h1>
+        <h1 className='pool-title'>Welcome to the Pool {userId}!</h1>
         
       </div>
 

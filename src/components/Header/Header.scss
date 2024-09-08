@@ -88,7 +88,9 @@ header{
   opacity: 40%;
   color: #fff;
   border-radius: 10px;
- 
+  border: none; // Add this to remove default button borders
+  background: none; // Remove default button background
+  cursor: pointer; // Make the button have a pointer cursor
   
   &:hover{
     color: #fff;

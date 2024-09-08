@@ -9,7 +9,7 @@ import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
 const URL = 'http://localhost:8080/sign-up';
 function SignUp() {
 const navigate = useNavigate();
-const [userName, setUsername] = useState('');
+const [username, setUsername] = useState('');
 const [lastName, setLastName] = useState('')
 const [email, setEmail] = useState('');
 const [password, setPassword]= useState('');
@@ -27,11 +27,11 @@ const [showPassword, setShowPassword] = useState(false)
 const formValidation = () => {
   const errors = {}; 
 
-  if (!userName && !lastName && !email && !password && !confirmPassword) {
+  if (!username && !lastName && !email && !password && !confirmPassword) {
     errors.allFields = '🫠 All fields are required 🫠';
     return errors; 
   }
-  if (!userName) errors.userName = ' Name is needed 🤪';
+  if (!username) errors.username = ' Name is needed 🤪';
   if (!lastName) errors.lastName = ' Last name is needed 🫣';
   if (!email){errors.email = ' Email is needed   😜'; 
   } else if (!emailRegex.test(email)) {
@@ -55,7 +55,7 @@ const formValidation = () => {
   return errors;
 };
 
- const hanbleSubmit = async(e)=>{
+ const handleSubmit = async(e)=>{
   e.preventDefault();
   const validationErrors = formValidation();
   if (Object.keys(validationErrors).length > 0) {
@@ -64,12 +64,12 @@ const formValidation = () => {
   }
   try {
     const response = await axios.post(URL, {
-      userName,
+      username,
       lastName,
       email,
       password
     });
-    if(response.useState === 201){
+    if(response.status === 201){
       setSuccess('😄 Account created!! 😄')
       localStorage.setItem('token', response.data.token)
       setTimeout(() => navigate('/'), 3000); 
@@ -95,13 +95,13 @@ const formValidation = () => {
       {success && <div className="success-message">{success}</div>}
       {error.allFields && <div className="error">{error.allFields}</div>}
       <form  className='sign-up-form'
-      onSubmit={hanbleSubmit}> 
+      onSubmit={handleSubmit}> 
         
           <input 
             type='text'
             className='input-sign-up'
             placeholder='Name'
-            value={userName}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
             >
             </input>
