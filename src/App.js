@@ -31,6 +31,8 @@ function App() {
     <Route path='/' element={<Login/>}/>
     <Route path='/sign-up' element={<SignUp/>}/>
     <Route path="/pool/:userId" element={<ProtectedRoute element={<Pool />} />} />
+    <Route path='*' element={<NotFound/>}/>
+
 
   </Routes>
   </BrowserRouter>
