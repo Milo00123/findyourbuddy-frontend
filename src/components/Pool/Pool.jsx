@@ -116,7 +116,7 @@ const buddyUrl ='http://localhost:8080/';
         <div>
 
         </div>
-        <PoolPost userId={userId} posts={posts} setPosts={setPosts}  />
+        <PoolPost  posts={posts} setPosts={setPosts}  />
     </div>
     </>)
 }
