@@ -4,6 +4,7 @@
     background-position: center;
     padding-top: 20px;
     padding-bottom: 20px;
+    background: $buddy-background;
 }
 .pool-title-container{
     width: 100%;
@@ -84,7 +85,7 @@
     align-items: center;
     border-radius: 6px;
     box-shadow: 0px 2px 5px 0px #0b0b0b;
-    background: linear-gradient(180deg, #1d2727, #202028);
+    background: $buddy-background;
     border: none;
     overflow: hidden;
     @include for-tablet{
@@ -99,14 +100,10 @@
     text-align: center;
     border: none;
     border-bottom: 1px solid #1b82b1 ;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    box-shadow: $buddy-shadow;
     border-radius: 6px;
     cursor: pointer;
-    &:hover{
-        box-shadow: 0px 2px 5px 0px #1b82b1;
-        transform: scale(1.2);
-        transition-duration: 500ms;
-        }
+  
     @include for-tablet{
         height: 40px;
         width: 60%;
