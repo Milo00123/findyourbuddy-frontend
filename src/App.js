@@ -31,6 +31,9 @@ function App() {
     <Route path='/' element={<Login/>}/>
     <Route path='/sign-up' element={<SignUp/>}/>
     <Route path="/pool/:userId" element={<ProtectedRoute element={<Pool />} />} />
+    <Route path='/profile/:userId' element={<ProtectedRoute element={<Profile />} />} />
+    <Route path='/profile/:userId/Profile-settings' element={<ProtectedRoute element={<ProfileSettings />} />} />
+    <Route path="/chat/:postId" element={<ProtectedRoute element={<Chat />} />} />
     <Route path='*' element={<NotFound/>}/>
 
 

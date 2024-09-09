@@ -1,7 +1,7 @@
 import React from 'react'
 import './Pool.scss';
 import { useParams } from 'react-router-dom';
-
+import PoolPost from '../Pool-post/PoolPost';
 
 
 
@@ -40,6 +40,7 @@ const {userId} = useParams();
         <div>
 
         </div>
+        <PoolPost />
     </div>
     </>)
 }
