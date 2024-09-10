@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 
 
-const buddyUrl ='http://localhost:8080/';
+const buddyUrl ='http://localhost:8080';
 
       function Pool() {
 
@@ -21,7 +21,7 @@ const buddyUrl ='http://localhost:8080/';
       
       const getProfile = async ()=>{
       try{
-        const response = await axios.get(`${buddyUrl}profile/${userId}`)
+        const response = await axios.get(`${buddyUrl}/profile/${userId}`)
         setPoolData(response.data)
       } catch(error){
         console.error('error fetching profile', error)
@@ -52,7 +52,7 @@ const buddyUrl ='http://localhost:8080/';
                 console.error('Token is missing');
                 return;
               }
-              const response = await axios.post(`${buddyUrl}posts`, {
+              const response = await axios.post(`${buddyUrl}/posts`, {
                 title,
                 content,
                 location,

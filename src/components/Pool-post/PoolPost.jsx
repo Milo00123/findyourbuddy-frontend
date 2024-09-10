@@ -9,7 +9,7 @@ import './PoolPost.scss';
 
 
 
-const buddyUrl ='http://localhost:8080/';
+const buddyUrl ='http://localhost:8080';
 
 function PoolPost({ posts, setPosts}) {
 
@@ -24,7 +24,7 @@ function PoolPost({ posts, setPosts}) {
 
   const fetchPosts = useCallback(async () => {
     try {
-      const response = await axios.get(`${buddyUrl}posts`);
+      const response = await axios.get(`${buddyUrl}/posts`);
       const sortedPosts = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setPosts(sortedPosts);
     } catch (error) {
@@ -57,7 +57,7 @@ const timePost = (dateString) => {
               console.error('No token found, unable to delete post');
               return;
             }
-            await axios.delete(`${buddyUrl}posts/${postId}`, {
+            await axios.delete(`${buddyUrl}/posts/${postId}`, {
               headers: {
                 Authorization: `Bearer ${token}`, 
               },
@@ -83,7 +83,7 @@ const timePost = (dateString) => {
             console.error('No token found, unable to update post');
             return;
           }
-          await axios.put(`${buddyUrl}posts/${postId}`, {
+          await axios.put(`${buddyUrl}/posts/${postId}`, {
             title: editTitle,
             content: editContent,
             user_id: userId,
@@ -171,7 +171,7 @@ const timePost = (dateString) => {
             )}
           </div>
           <div className='inner-post-container'>
-            <img src={`http://localhost:8080${post.profile_image}`} alt={`${post.name}'s profile`} className="pool-post-img" />
+            <img src={`${buddyUrl}${post.profile_image}`} alt={`${post.name}'s profile`} className="pool-post-img" />
             <div className='pool-post-timestamp'>{timePost(post.created_at)}</div>
           </div>
           <div className='pool-post-name'>{post.name}</div>

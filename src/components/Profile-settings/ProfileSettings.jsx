@@ -29,6 +29,7 @@ function ProfileSettings() {
             console.error('Error Getting user data', error)
           }
         }
+        fetchUserData()
       }
      },[userId])
 
@@ -56,31 +57,42 @@ function ProfileSettings() {
   };
 
 
-      const handleSubmit = async(e)=>{
-        e.preventDefault();
-       const token = localStorage.getItem('token')
-       const dataToUpdate = new FormData();
-       dataToUpdate.append('name', formData.name)
-       dataToUpdate.append('password', formData.password);
-       dataToUpdate.append('about', formData.about);
-       dataToUpdate.append('riding_level', formData.riding_level);
-       if (formData.profile_image) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error('No token found in localStorage');
+        return;
+    }
+
+    const dataToUpdate = new FormData();
+    dataToUpdate.append('name', formData.name);
+    dataToUpdate.append('password', formData.password);
+    dataToUpdate.append('about', formData.about);
+    dataToUpdate.append('riding_level', formData.riding_level);
+
+    if (formData.profile_image) {
         dataToUpdate.append('profile_image', formData.profile_image);
-      }
-      try{
-        await axios.put(`${buddyProfileUrl}/${userId}`, dataToUpdate, {       
+    }
+
+    try {
+        const response = await axios.put(`${buddyProfileUrl}/${userId}`, dataToUpdate, {
             headers: {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json' 
-            }
-          
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data',
+            },
         });
-        if(handleSubmit){
-          navigate(`${buddyProfileUrl}/${userId}`)
+        console.log('Profile updated successfully:', response.data);
+        navigate(`/profile/${userId}`);
+    } catch (error) {
+        console.error('Error submitting form', error.response || error.message);
+        if (error.response && error.response.status === 403) {
+            console.error('Authorization error. Please check your token or permissions.');
         }
-      } catch(error){
-        console.error('error submiting form', error)
-      } };
+    }
+};
+
 
       const handleDelete = async () => {
         try {
@@ -130,25 +142,34 @@ function ProfileSettings() {
             Update Password
            <input
            className='update-profile-input'
-           type='text'
-           name='update-password'
+           type='password'
+           name='password'
            placeholder='update-password'
-           value={formData.password}
-           onChange={handleChange}
+          //  value={formData.password || ''}
+          //  onChange={handleChange}
           ></input>
           </label>
   
   
           <label className='update-label'>
               Update Riding Level
-            <input
+            <select
            className='update-profile-input'
            type='text'
            name='riding_level'
-           placeholder='Riding Level'
-           value={formData.riding_level}
+           placeholder='Riding Level'       
            onChange={handleChange}
-          ></input>
+           value={formData.riding_level}
+          > 
+           <option value='Beaginer'>Beaginer 🟢</option>
+           <option value='Intermediate'>intermediate 🔵</option>
+           <option value='Strong Intermediate'>Strong Intermediate 🔵 ⚫</option>
+           <option value='Advance'>Advance ⚫⚫ </option>
+           <option value='Expert'>Expert 🔴</option>
+
+
+           
+           </select>   
           </label>
           
           <div className='submit-update-box'>

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import './Profile.scss';
 
 
-const URL = 'http://localhost:8080/profile';
+const buddyUrl = 'http://localhost:8080';
 function Profile() {
   const userId = parseInt(localStorage.getItem('userId'), 10);
   const [profile, setProfile]=useState(null);
@@ -14,7 +14,7 @@ function Profile() {
 
   const fetchProfile = async ()=>{
     try{
-      const response = await axios.get(`${URL}/${userId}`)
+      const response = await axios.get(`${buddyUrl}/profile/${userId}`)
       setProfile(response.data)
     } catch(error){
       console.error('error fetching profile', error)
@@ -45,7 +45,7 @@ if (!profile) {
        <div className='profile-inner-box'>
        <img alt='profile_img'
             className='profile-image' 
-            src={`${URL}${profile.profile_image}`}
+            src={`${buddyUrl}${profile.profile_image}`}
              />
               <div  className='profile-name'>Hi {profile.name},  Welcome back !</div>
               
