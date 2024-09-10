@@ -1,0 +1,175 @@
+@use '../../Styles/Partials/Styles' as *;
+.profile-box{
+    height: fit-content;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fff;
+    border: 1px ;
+    border-radius: 4px;
+    box-shadow: $buddy-shadow;
+    background: $buddy-background;
+    
+    @include for-desktop{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+    
+}}
+
+.profile-inner-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 6px;
+    background: $buddy-background;
+    @include for-desktop{
+        width: 80%;
+        height: fit-content;
+        box-shadow: $buddy-shadow;
+        border-radius: 10px;
+        flex-direction: column;
+        margin: 0;
+        padding-bottom:30px; 
+        margin-top: 20px;      
+    }
+   
+    .profile-name{
+        padding: 10px;
+        color: #46c7e4;
+        border-radius: 6px;
+        margin-right: 5%;
+        margin-left: 5%;
+        flex-grow: 1;
+        font-weight: 700;
+        font-size: 20px;
+        margin-left: 10px;
+        box-shadow: $buddy-shadow;
+        background: $buddy-background;
+        @include for-tablet{
+            font-size: 30px;
+            margin-left: 10%;
+        }
+        @include for-desktop{
+            font-size: 40px;
+            margin-top: 30px;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0;
+            margin-top: 30px;
+     
+        }
+
+    }
+
+}
+.profile-bold{
+    padding: 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    box-shadow:$buddy-shadow;
+    background: $buddy-background;
+    border-radius: 6px;
+    @include for-tablet{
+        font-size: 21px;
+        width: 25%;
+        text-align: center;
+    }
+    @include for-desktop{
+        width: 90%;
+        text-align: center;
+        border-bottom: 1px solid #666;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 10px;
+        
+    }
+}
+.profile-description-box{
+    margin-left: 10%;
+    margin-right: 10%;
+    background: $buddy-background;
+    @include for-desktop{
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 0px;
+        margin-left: 0;
+        margin-right: 0;
+        width: fit-content;
+        padding-top: 30px;  
+        padding-bottom: 30px;
+        border-radius: 6px;
+      }
+}
+.profile-mini-container{
+    margin-top: 20px;  
+    padding: 20px 20px 20px 20px;
+    border-radius: 6px;
+    border-top: 1px solid #1b82b1;
+    box-shadow: $buddy-shadow;
+    background:$buddy-background;
+    @include for-tablet{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    @include for-desktop{
+        width: 300px;
+        height: 200px;
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 6px;
+        box-shadow:$buddy-shadow;
+      }
+    
+}
+.profile-description{
+    padding: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    box-shadow: $buddy-shadow;
+    background: $buddy-background;
+    border-radius: 6px;
+   @include for-tablet{
+    font-size: 18px;
+    text-align: center;
+    padding: 30px;
+    width: 90%;
+   }
+   @include for-desktop{
+    width: 80%;
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+   }
+}
+
+.profile-image{
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 70px;
+    box-shadow: $buddy-shadow;
+    @include for-tablet{
+        width: 120px;
+        height: 120px;
+        border-radius: 120px;
+    }
+    @include for-desktop{
+        width: 160px;
+        height: 160px;
+        border-radius: 160px;
+    }
+}
+
