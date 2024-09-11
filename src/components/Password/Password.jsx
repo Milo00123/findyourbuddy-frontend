@@ -24,15 +24,31 @@ function Password() {
         });
     };
 
+
+    const mustUpperCase = /[A-Z]/;
+    const mustNumber = /\d/;
+    const mustSymbol = /[!@#$%^&*(),.?":{}|<>]/;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const errors = {};
 
-        // Simple frontend validation for password match
         if (formData.newPassword !== formData.confirmPassword) {
-            setError('New password and confirm password do not match');
+            errors.confirmPassword = 'New password and confirm password do not match 🤪';
+        }
+        if (!mustUpperCase.test(formData.newPassword)) {
+            errors.newPassword = 'Password must contain an uppercase letter 😑';
+        }
+        if (!mustNumber.test(formData.newPassword)) {
+            errors.newPassword = 'Password must contain a number 😛';
+        }
+        if (!mustSymbol.test(formData.newPassword)) {
+            errors.newPassword = 'Password must contain a special symbol 😜';
+        }
+        if (Object.keys(errors).length > 0) {
+            setError(errors);
             return;
         }
-
         try {
             const response = await axios.put(`${buddyProfileUrl}/password/${userId}`, {
                 currentPassword: formData.currentPassword,
@@ -58,7 +74,9 @@ function Password() {
               onChange={(e) => setShowPassword(e.target.checked)}
             />
           </label>
-            {error && <p className="error-msg">{error}</p>}
+          {error.newPassword && <p className="error-msg">{error.newPassword}</p>}
+            {error.confirmPassword && <p className="error-msg">{error.confirmPassword}</p>}
+            {error.apiError && <p className="error-msg">{error.apiError}</p>}
             <form className='update-password-form' onSubmit={handleSubmit}>
                 <label className='update-password-label'>
                     Current Password:
@@ -68,7 +86,7 @@ function Password() {
                         name="currentPassword"
                         value={formData.currentPassword}
                         onChange={handleChange}
-                        required
+                    
                     />
                 </label>
                 <label className='update-password-label'>
@@ -79,7 +97,7 @@ function Password() {
                         name="newPassword"
                         value={formData.newPassword}
                         onChange={handleChange}
-                        required
+              
                     />
                 </label>
                 <label className='update-password-label'>
@@ -90,7 +108,7 @@ function Password() {
                         name="confirmPassword"
                         value={formData.confirmPassword}
                         onChange={handleChange}
-                        required
+                   
                     />
                 </label>
                 <button className='update-password-btn' type="submit">Update Password</button>
