@@ -19,7 +19,7 @@ function Header() {
         }
 
         const handleLogout = () => {
-          localStorage.removeItem('token');
+          localStorage.removeItem('userId');
           navigate('/');
         };
           const hiddenPaths = ['/', '/sign-up'];

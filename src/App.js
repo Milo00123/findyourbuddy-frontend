@@ -16,7 +16,7 @@ import Header from './components/Header/Header';
 
 
 const isAuthenticated = () => {
-  return !!localStorage.getItem('token'); 
+  return !!localStorage.getItem('userId'); 
 };
 
 const ProtectedRoute = ({ element: Component }) => {

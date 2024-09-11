@@ -49,20 +49,13 @@ const timePost = (dateString) => {
   const timeZone = 'America/Vancouver';
   return isValidDate(dateString) ? formatInTimeZone(dateString, timeZone, 'yyyy-MM-dd hh:mm a') : 'Invalid date';
 };
-      
+
+
         const handleDelete = async (postId) => {
           try {
-            const token = localStorage.getItem('token'); 
-            if (!token) {
-              console.error('No token found, unable to delete post');
-              return;
-            }
             await axios.delete(`${buddyUrl}/posts/${postId}`, {
-              headers: {
-                Authorization: `Bearer ${token}`, 
-              },
+              data: { user_id: userId }, 
             });
-
             setPosts(posts.filter(post => post.id !== postId));
             setIsDeleting(null);
           } catch (error) {
@@ -78,20 +71,11 @@ const timePost = (dateString) => {
 
       const handleSaveEdit = async (postId) => {
         try {
-          const token = localStorage.getItem('token');
-          if (!token) {
-            console.error('No token found, unable to update post');
-            return;
-          }
           await axios.put(`${buddyUrl}/posts/${postId}`, {
             title: editTitle,
             content: editContent,
             user_id: userId,
-          }, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
+          },);
           setPosts(posts.map(post => post.id === postId ? { ...post, title: editTitle, content: editContent } : post));
           setIsEditing(null);
         } catch (error) {

@@ -11,7 +11,6 @@ function ProfileSettings() {
    const userId = parseInt(localStorage.getItem('userId'), 10);
    const [imagePreview, setImagePreview] = useState(null);
    const [formData, setFormData] = useState({
-    password: '',
     name: '',
     about: '',
     profile_image: '',
@@ -19,19 +18,25 @@ function ProfileSettings() {
 
 
    })
-     useEffect(() =>{
-      if(userId){
-        const fetchUserData = async() =>{
-          try{
-            const response = await axios.get(`${buddyProfileUrl}/${userId}`);
-            setFormData(response.data);
-          } catch(error){
-            console.error('Error Getting user data', error)
-          }
+   useEffect(() => {
+    if (userId) {
+      const fetchUserData = async () => {
+        try {
+          const response = await axios.get(`${buddyProfileUrl}/${userId}`);
+          const updatedData = {
+            ...response.data,
+            about: response.data.about === "null" || response.data.about === null ? '' : response.data.about,
+            profile_image: response.data.profile_image === "null" || response.data.profile_image === null ? '' : response.data.profile_image,
+            riding_level: response.data.riding_level === "null" || response.data.riding_level === null ? '' : response.data.riding_level,
+          };
+          setFormData(updatedData);
+        } catch (error) {
+          console.error('Error Getting user data', error);
         }
-        fetchUserData()
-      }
-     },[userId])
+      };
+      fetchUserData();
+    }
+  }, [userId]);
 
      const handleChange = (e) => {
       const { name, value } = e.target;
@@ -59,16 +64,9 @@ function ProfileSettings() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-        console.error('No token found in localStorage');
-        return;
-    }
 
     const dataToUpdate = new FormData();
-    dataToUpdate.append('name', formData.name);
-    dataToUpdate.append('password', formData.password);
+    dataToUpdate.append('name', formData.name); 
     dataToUpdate.append('about', formData.about);
     dataToUpdate.append('riding_level', formData.riding_level);
 
@@ -78,18 +76,16 @@ function ProfileSettings() {
 
     try {
         const response = await axios.put(`${buddyProfileUrl}/${userId}`, dataToUpdate, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'multipart/form-data',
-            },
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,
+
         });
         console.log('Profile updated successfully:', response.data);
         navigate(`/profile/${userId}`);
     } catch (error) {
-        console.error('Error submitting form', error.response || error.message);
-        if (error.response && error.response.status === 403) {
-            console.error('Authorization error. Please check your token or permissions.');
-        }
+      console.error('Error submitting form', error.response || error.message);
     }
 };
 
@@ -133,12 +129,12 @@ function ProfileSettings() {
            type='text'
            name='about'
            placeholder='Tell people about you '
-           value={formData.about}
+           value={formData.about === "null" || formData.about === null ? '' : formData.about}
            onChange={handleChange}
           ></textarea>
            </label>
   
-           <label className='update-label'>
+           {/* <label className='update-label'>
             Update Password
            <input
            className='update-profile-input'
@@ -148,7 +144,7 @@ function ProfileSettings() {
           //  value={formData.password || ''}
           //  onChange={handleChange}
           ></input>
-          </label>
+          </label> */}
   
   
           <label className='update-label'>
@@ -157,10 +153,10 @@ function ProfileSettings() {
            className='update-profile-input'
            type='text'
            name='riding_level'
-           placeholder='Riding Level'       
+           placeholder='Riding Level'    
            onChange={handleChange}
-           value={formData.riding_level}
-          > 
+           value={formData.riding_level === "null" || formData.riding_level === null ? '' : formData.riding_level}
+          > <option>Choose</option>
            <option value='Beaginer'>Beaginer 🟢</option>
            <option value='Intermediate'>intermediate 🔵</option>
            <option value='Strong Intermediate'>Strong Intermediate 🔵 ⚫</option>

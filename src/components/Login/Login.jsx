@@ -47,11 +47,10 @@ function Login() {
         const response = await axios.post(`${findyourbuddy}profile/login`, {
           email: email,
           password: password
-        });
-        const { token, userId } = response.data;
+        },{ withCredentials: true });
+        const { userId, success } = response.data;
   
-        if (response.data.success) {
-          localStorage.setItem('token', token);
+        if (success) {
           localStorage.setItem('userId', userId);
           navigate(`/pool/${userId}`); 
         } else {

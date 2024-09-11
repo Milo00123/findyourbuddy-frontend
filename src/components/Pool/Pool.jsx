@@ -60,11 +60,6 @@ const buddyUrl ='http://localhost:8080';
                 profile_image: poolData.profile_image,
                 name: poolData.name,
                 created_at: new Date().toISOString(),
-              }, {
-                headers: {
-                  'Authorization': `Bearer ${token}`,  // Include the token in the Authorization header
-                  'Content-Type': 'application/json'  // Ensure the content type is JSON
-                }
               });
               const newPost =  response.data;
               setPosts([{ ...newPost, title, content,location, profile_image: poolData.profile_image, name: poolData.name, created_at: new Date().toISOString() },  ...posts]);
