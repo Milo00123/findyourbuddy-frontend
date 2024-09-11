@@ -47,11 +47,7 @@
     box-shadow: $buddy-shadow;
     cursor: pointer;
 }
-.login-button:hover{
-    @include hover-effect;
-    font-size: 15px;
- 
-}
+
 .login-button{
     width: 200px;
     height: 40px;
@@ -63,6 +59,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
    box-shadow: $buddy-shadow;
+   &:hover{
+    @include hover-effect;
+    font-size: 15px;
+   }
     
 }
 

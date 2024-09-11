@@ -11,7 +11,7 @@ import Profile from './components/Profile/Profile';
 import ProfileSettings from './components/Profile-settings/ProfileSettings';
 import NotFound from './components/Not-found/NotFound';
 import Pool from './components/Pool/Pool';
-import PoolPost from './components/Pool-post/PoolPost';
+import Password from './components/Password/Password';
 import Header from './components/Header/Header';
 
 
@@ -33,6 +33,7 @@ function App() {
     <Route path="/pool/:userId" element={<ProtectedRoute element={<Pool />} />} />
     <Route path='/profile/:userId' element={<ProtectedRoute element={<Profile />} />} />
     <Route path='/profile/:userId/Profile-settings' element={<ProtectedRoute element={<ProfileSettings />} />} />
+    <Route path="/profile/:userId/Profile-settings/update-password" element={<ProtectedRoute element={<Password />} />} />
     <Route path="/chat/:postId" element={<ProtectedRoute element={<Chat />} />} />
     <Route path='*' element={<NotFound/>}/>
 

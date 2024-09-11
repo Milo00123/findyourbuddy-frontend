@@ -198,7 +198,10 @@ function ProfileSettings() {
                   className='delete-profile-btn'
                   >Delete Profile </button>
               )}
-
+            
+            <button className='password'
+            onClick={()=>{navigate(`update-password`)}}>Update Password</button>
+            
 
      </div>
  </div>
