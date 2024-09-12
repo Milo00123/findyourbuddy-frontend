@@ -40,7 +40,7 @@ if (!profile) {
 }
 
   return (<>
-
+<div className='profile-wrap'>
     < div key={profile.id} className='profile-box'>
        <div className='profile-inner-box'>
        <img alt='profile_img'
@@ -75,7 +75,7 @@ if (!profile) {
    </div>
   
   
-      
+   </div>   
       
       </> )
 }

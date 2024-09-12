@@ -103,8 +103,12 @@ function ProfileSettings() {
 
   return (<>
   < div className='update-profile-wrap'>
-    <div className='update-profile-box'>
+  <h1 className="profile-settings-title">Profile Settings</h1>
+    <div className='update-profile-box'>   
+      
             <form onSubmit={handleSubmit} className='form-update-profile'>
+           
+
               <div className='update-img-container'>
             <label className='update-label update-label__img'>
                     Profile Image
@@ -176,6 +180,10 @@ function ProfileSettings() {
       </form>
   
       </div>
+      <div className='update-btn-container'>
+              <button className='btn-update-password'
+                    onClick={()=>{navigate(`update-password`)}}>Update Password</button>
+            </div>
         <div className='delete-btn-container'>
               {showDeleteConfirm ? (
             <div className='delete-confirm-container'>
@@ -199,8 +207,7 @@ function ProfileSettings() {
                   >Delete Profile </button>
               )}
             
-            <button className='password'
-            onClick={()=>{navigate(`update-password`)}}>Update Password</button>
+       
             
 
      </div>

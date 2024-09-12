@@ -5,7 +5,7 @@ import logo from '../../Assets/Logo/Find your Buddy (6).png'
 import { useState } from 'react';
 import axios from 'axios';
 import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
-import { TbWashDryP } from 'react-icons/tb';
+
 
 
 const findyourbuddy = 'http://localhost:8080/';

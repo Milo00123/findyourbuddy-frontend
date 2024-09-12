@@ -4,7 +4,7 @@ import {FaBars, FaTimes} from 'react-icons/fa';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
-import { useEffect } from 'react';
+
 
 
 function Header() {

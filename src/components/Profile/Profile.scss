@@ -1,9 +1,15 @@
 @use '../../Styles/Partials/Styles' as *;
+
+.profile-wrap{
+    width: 100%;
+    height: 100vh;
+    background: $buddy-background;
+    padding-top: 20px;
+}
 .profile-box{
     height: fit-content;
     margin-left: 5%;
     margin-right: 5%;
-    padding-top: 20px;
     padding-bottom: 20px;
     background-color: #fff;
     border: 1px ;
@@ -23,8 +29,6 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding-top: 20px;
-    margin-top: 10px;
     margin-left: 10%;
     margin-right: 10%;
     border-radius: 6px;
@@ -41,16 +45,15 @@
     }
    
     .profile-name{
-        padding: 10px;
+        width: 100px;
+        margin-left: 5px;
+        padding: 5px;
         color: #46c7e4;
         border-radius: 6px;
-        margin-right: 5%;
-        margin-left: 5%;
+        text-align: center;
         flex-grow: 1;
         font-weight: 700;
         font-size: 20px;
-        margin-left: 10px;
-        box-shadow: $buddy-shadow;
         background: $buddy-background;
         @include for-tablet{
             font-size: 30px;
@@ -67,6 +70,25 @@
         }
 
     }
+
+.profile-image{
+    width: 70px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 70px;
+    box-shadow: $buddy-shadow;
+    @include for-tablet{
+        width: 120px;
+        height: 120px;
+        border-radius: 120px;
+    }
+    @include for-desktop{
+        width: 160px;
+        height: 160px;
+        border-radius: 160px;
+    }
+}
 
 }
 .profile-bold{
@@ -153,23 +175,4 @@
    }
 }
 
-.profile-image{
-    width: 70px;
-    height: 70px;
-    margin: 10px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 70px;
-    box-shadow: $buddy-shadow;
-    @include for-tablet{
-        width: 120px;
-        height: 120px;
-        border-radius: 120px;
-    }
-    @include for-desktop{
-        width: 160px;
-        height: 160px;
-        border-radius: 160px;
-    }
-}
 

@@ -7,6 +7,16 @@
     background: $buddy-background;
      padding-top: 30px;
 }
+.profile-settings-title{
+    font-weight: 700;
+    text-align: center;
+   
+    border-radius: 6px;
+    color: #46c7e4;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:#46c7e4;
+    padding: 10px;
+}
 .update-profile-box{
     display: flex;
     align-items: center;
@@ -102,6 +112,7 @@
         font-size: 20px;
         margin-left: 0;
         margin-right: 0;
+        box-shadow: none;
     }
     @include for-desktop{
         margin-top: 30px;
@@ -310,4 +321,43 @@
     color: #fff;
     font-weight: 600;
     font-size: 18px;
+}
+.update-btn-container{
+    display: flex;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    @include for-tablet{
+        width: 30%;
+        display: flex;
+        align-items: flex-end;
+        margin-left: 64%;
+        margin-right: 0;
+
+    }
+    @include for-desktop{
+        width: 200px;
+        margin-left: 80%;
+    }
+
+}
+.btn-update-password{
+    background: $buddy-background;
+    width: 80%;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 40px;
+    border: none;
+    box-shadow:$buddy-shadow;
+    cursor: pointer;
+    @include for-tablet{
+     width: 100%;
+    }
+    @include for-desktop{
+        width: 200px;
+    }
 }
