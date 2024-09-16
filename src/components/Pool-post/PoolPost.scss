@@ -3,6 +3,7 @@
     height: fit-content;
     padding-bottom: 40px;
     padding-top: 40px;
+    background: #202028;
     @include for-tablet{
         height: fit-content;
         display: flex;
@@ -88,25 +89,38 @@
     }
     
     &__delete{
-        background: linear-gradient(180deg, #1d2727, #202028);
-        color: #b8270a;
+        width: fit-content;
+        background:none;
+        font-size: 20px;
+        font-weight: 600;
+        color: #C0C0C0	;
+        margin-bottom: 5px;
     }
     &__edit{
-        color: #56b7e8;
-        background: linear-gradient(180deg, #1d2727, #202028);
+        font-size: 20px;
+        color: #C0C0C0	;
+        background: none;
+
+  
+
     }
     &__cancel{
-        background-color:#b8270a ;
-        color: #fff;
+        font-weight: 600;
+        background: none;
+        color: #b8270a;
 
     }
     &__save{
-        background-color: #1b82b1;
-        color: #fff;
+        background: none;
+        color: #56b7e8;;
+        font-weight: 600;
+
     }
     &__confirm{
         color: #56b7e8;
-        background: linear-gradient(180deg, #1d2727, #202028);
+        background: none;
+        font-weight: 600;
+
     }
 }
 .pool-post-content{
@@ -177,7 +191,7 @@
 .pool-join-btn{
     width: 100%;
     height: 40px;
-    background: $btn-color;
+    background: none;
     box-shadow: $buddy-shadow;
     border-style: none;
     margin-top: 20px;

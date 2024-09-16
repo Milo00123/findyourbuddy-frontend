@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formatInTimeZone } from 'date-fns-tz';
 import './PoolPost.scss';
+import { CiEdit } from "react-icons/ci";
+
+
+
+
 
 
 
@@ -143,13 +148,13 @@ const timePost = (dateString) => {
                               <button 
                                   className='pool-post-btn pool-post-btn__edit' 
                                   onClick={() => handleEdit(post)}>
-                                  Edit
+                                  <CiEdit />
                           </button>
                           )}
                      <button 
                           className='pool-post-btn pool-post-btn__delete' 
                           onClick={() => handleDeleteConfirmation(post.id)}>
-                          Delete
+                         x
                    </button>
               </>
             )}
