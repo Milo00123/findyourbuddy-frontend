@@ -6,6 +6,8 @@
     height: 100vh;
     background: $buddy-background;
      padding-top: 30px;
+     @include for-desktop{
+     }
 }
 .profile-settings-title{
     font-weight: 700;
@@ -39,7 +41,8 @@
 
     }
     @include for-desktop{
-        justify-content: space-evenly;
+        width: fit-content;
+        box-shadow: none;
     }
     
 }
@@ -51,6 +54,9 @@
     @include for-tablet{
         flex-direction: row-reverse;
         justify-content: space-between;
+    }
+    @include for-desktop{
+        width: fit-content;
     }
 
 }
@@ -121,7 +127,7 @@
     &__img{
         cursor: pointer;
         @include for-desktop{
-        width: 400px;
+        width: 350px;
         height: 350px;
         }   
     }
@@ -134,7 +140,7 @@
         align-items: center;
     }
     @include for-desktop{
-        margin-right: 30px;
+    
     }
 }
 .update-profile-input::placeholder{
@@ -231,6 +237,11 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    padding-top: 20px;
+    @include for-desktop{
+     width: 200px;
+     margin-left: 65%;
+    }
 
 }
 .delete-confirm-box{
@@ -303,7 +314,7 @@
     }
     @include for-desktop{
         width: 200px;
-        margin-left: 75%;
+        margin: auto;
     }
 }
 
@@ -338,12 +349,12 @@
     }
     @include for-desktop{
         width: 200px;
-        margin-left: 80%;
+        margin-left: 65%;
     }
 
 }
 .btn-update-password{
-    background: $buddy-background;
+    background: #165271;
     width: 80%;
     height: 30px;
     margin-top: 10px;
@@ -354,6 +365,11 @@
     border: none;
     box-shadow:$buddy-shadow;
     cursor: pointer;
+    &:hover{
+        box-shadow: 0px 2px 5px 0px #1b82b1;
+        @include hover-effect
+        
+    }
     @include for-tablet{
      width: 100%;
     }

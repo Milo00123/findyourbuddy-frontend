@@ -64,7 +64,7 @@ function Password() {
 
     return (
         <div className="password-update-wrap">
-            <h2 className='update-password-title'>Update Password</h2>
+            <h1 className='update-password-title'>Update Password</h1>
             <label className='eye-password' htmlFor='show-password'>
             {showPassword ? <PiEyeSlash/> :<PiEyeLight/> }
             <input

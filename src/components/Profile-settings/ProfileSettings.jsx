@@ -138,19 +138,6 @@ function ProfileSettings() {
           ></textarea>
            </label>
   
-           {/* <label className='update-label'>
-            Update Password
-           <input
-           className='update-profile-input'
-           type='password'
-           name='password'
-           placeholder='update-password'
-          //  value={formData.password || ''}
-          //  onChange={handleChange}
-          ></input>
-          </label> */}
-  
-  
           <label className='update-label'>
               Update Riding Level
             <select
