@@ -16,7 +16,7 @@
 
     }
     @include for-desktop{
-        width: 1000px;
+        width: 1300px;
         margin: auto;
 
     }
@@ -57,6 +57,9 @@
     margin-left: 10px;
     border-radius: 70px;
     box-shadow: $buddy-shadow;
+    @include for-tablet{
+        margin-left: 0;
+    }
 }
 .pool-post-timestamp{
     height: fit-content;
@@ -70,6 +73,9 @@
     margin-top: 10px;
     font-weight: 600;
     font-size: 18px;    
+    @include for-tablet{
+        margin-left: 20px;
+    }
 }
 
 .edit-delete-btns{
