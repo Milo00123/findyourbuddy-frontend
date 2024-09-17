@@ -61,6 +61,23 @@
         margin-left: 0;
     }
 }
+
+.location-timestamp-box{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.location-post{
+    height: fit-content;
+    font-size: 20px;
+    border-radius: 6px;
+    font-weight: 400;
+    color: #fafafa	;
+}
+.location-icon{
+    color: #b8270a;
+}
 .pool-post-timestamp{
     height: fit-content;
     border-radius: 6px;
@@ -165,7 +182,7 @@
 }
 .pool-post-comment{
     width: 90%;
-    color: #C0C0C0	;
+    color: #fafafa	;
     border-radius: 4px;  
     word-wrap: break-word;
     overflow-wrap: break-word;

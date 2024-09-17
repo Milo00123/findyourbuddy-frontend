@@ -6,6 +6,7 @@ import { formatInTimeZone } from 'date-fns-tz';
 import './PoolPost.scss';
 import { CiEdit } from "react-icons/ci";
 import { MdGroupAdd } from "react-icons/md";
+import { HiLocationMarker } from "react-icons/hi";
 
 
 
@@ -18,7 +19,7 @@ import { MdGroupAdd } from "react-icons/md";
 
 const buddyUrl ='http://localhost:8080';
 
-function PoolPost({ posts, setPosts}) {
+function PoolPost({ posts, setPosts, level}) {
 
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(null);
@@ -104,14 +105,6 @@ const timePost = (dateString) => {
       };
 
 
- 
-
-
-
-
-
-
-
   return ( <>
     <div className='pool-post-wrap'>
       {posts.map(post => (
@@ -164,7 +157,12 @@ const timePost = (dateString) => {
           </div>
           <div className='inner-post-container'>
             <img src={`${buddyUrl}${post.profile_image}`} alt={`${post.name}'s profile`} className="pool-post-img" />
-            <div className='pool-post-timestamp'>{timePost(post.created_at)}</div>
+            <div className='location-timestamp-box'>
+          
+                <div className='location-post'>{post.location} <HiLocationMarker className='location-icon'/></div>
+                <div className='location-post'>{level}</div>
+                <div className='pool-post-timestamp'>{timePost(post.created_at)}</div>
+           </div>
           </div>
           <div className='pool-post-name'>{post.name}</div>
           <div className='pool-post-content'>

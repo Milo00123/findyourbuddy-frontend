@@ -4,10 +4,6 @@ import { useParams } from 'react-router-dom';
 import PoolPost from '../Pool-post/PoolPost';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { TbHandClick } from "react-icons/tb";
-
-
-
 
 
 const buddyUrl ='http://localhost:8080';
@@ -50,10 +46,10 @@ const buddyUrl ='http://localhost:8080';
           const handleCreatePost = async (e) => {
             e.preventDefault();
             try {
-              const token = localStorage.getItem('token');
+          
 
-              if (!token) {
-                console.error('Token is missing');
+              if (location === '') {
+                console.error('Location is missing');
                 return;
               }
               const response = await axios.post(`${buddyUrl}/posts`, {
@@ -96,13 +92,18 @@ const buddyUrl ='http://localhost:8080';
                 : 'keen for a plan ?'
               } </div>
                 {isVisible && (<>
-                <input
+                <select
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)} required
                     className='pool-input'
                     placeholder='location'>    
-                 </input>
+                    <option value='' >Mandatory Location</option>
+                    <option value='Whistler'>Whistler</option>
+                    <option value='Squamish'>Squamish</option>
+                    <option value='Pemberton'>Pemberton</option>
+                    <option value='Somewhere else'>Somewhere else</option>           
+                 </select>
                 <input
                     type="text"
                     value={title}
@@ -125,7 +126,7 @@ const buddyUrl ='http://localhost:8080';
         <div>
 
         </div>
-        <PoolPost  posts={posts} setPosts={setPosts}  />
+        <PoolPost level={poolData.riding_level} posts={posts} setPosts={setPosts}  />
     </div>
     </>)
 }
