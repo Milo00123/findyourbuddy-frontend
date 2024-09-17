@@ -34,7 +34,7 @@ function App() {
     <Route path='/profile/:userId' element={<ProtectedRoute element={<Profile />} />} />
     <Route path='/profile/:userId/Profile-settings' element={<ProtectedRoute element={<ProfileSettings />} />} />
     <Route path="/profile/:userId/Profile-settings/update-password" element={<ProtectedRoute element={<Password />} />} />
-    <Route path="/chat/:postId" element={<ProtectedRoute element={<Chat />} />} />
+    <Route path="/chat/:userId/:postId" element={<ProtectedRoute element={<Chat />} />} />
     <Route path='*' element={<NotFound/>}/>
 
 

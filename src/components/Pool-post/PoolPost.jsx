@@ -100,7 +100,7 @@ const timePost = (dateString) => {
       };
 
       const handleJoinClick = (postId) => {
-        navigate(`/chat/${postId}`);
+        navigate(`/chat/${userId}/${postId}`);
       };
 
 
