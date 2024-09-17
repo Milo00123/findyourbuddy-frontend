@@ -100,13 +100,30 @@ const messagesEndRef = useRef(null);
       <h1 className='title-chat'>Chat</h1>
       <div className="chat-messages">
         {message.map((msg) => (
-          <div key={msg.id} className="message">
+          <div key={msg.id} className={`message ${Number(msg.user_id) === Number(userId) ? 'my-message' : 'other-message'}`}>
             <div className='chat-img-timestamp'> 
                 <img className='img-chat' src={`${buddyUrl}${msg.profile_image}`} alt={msg.name} />
                 <span className="timestamp">{formatTimestamp(msg.created_at)}</span>
             </div>
             <div>
+              <div className='name-chat-container'> 
               <p className='chat-name'>{msg.name}</p> 
+              {Number(msg.user_id) === Number(userId) && (
+                <div className="message-btns-container">
+                  <button
+                   className='chat-btn chat-btn__edit'
+                    onClick={() => handleEditMessage(msg.id, msg.message)}
+                    ><CiEdit />
+                    </button>
+                  <button 
+                  className='chat-btn chat-btn__delete' 
+                  onClick={() => handleDeleteMessage(msg.id)}>
+                    X
+                    </button>
+                    
+                </div>
+              )}
+              </div>
               {editMessageId === msg.id ? (
                 <div>
                   <input
@@ -120,20 +137,7 @@ const messagesEndRef = useRef(null);
               ) : (
                 <p className='chat-msg'>{msg.message}</p>
               )}
-              {Number(msg.user_id) === Number(userId) && (
-                <div className="message-btns-container">
-                  <button
-                   className='chat-btn chat-btn__edit'
-                    onClick={() => handleEditMessage(msg.id, msg.message)}
-                    ><CiEdit />
-                    </button>
-                  <button 
-                  className='chat-btn chat-btn__delete' 
-                  onClick={() => handleDeleteMessage(msg.id)}>
-                    X
-                    </button>
-                </div>
-              )}
+          
             </div>
           </div>
         ))}

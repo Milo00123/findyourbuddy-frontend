@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: $buddy-background;
 }
 
 .title-chat{
@@ -16,10 +17,8 @@
     margin: auto;
     font-weight: 700;
     text-align: center;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
     border-radius: 6px;
     color: #46c7e4;
-    background: linear-gradient(180deg, #1d2727, #202028);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color:#46c7e4;
     margin-top: 20px;
@@ -28,44 +27,59 @@
 
 .chat-messages{
     width: 100%;
-    height: 70vh;
+    height: 100vh;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
    align-items: center;
    border-radius: 6px;
-   background: linear-gradient(180deg, #1d2727, #202028);
+   background: $buddy-background;
 
     overflow: scroll;
     @include for-tablet{
-        width: 90%;
+        width: 50%;
         padding: 20px;
+    }
+    @include for-desktop{
+      width: 500px;
     }
     
 }
 .message{
-    width: 290px;
-    border-top: 1px solid black;
-    border-bottom:1px solid black; 
-    background: linear-gradient(180deg, #1d2727, #202028);
-
+    width: 200px;
+    background:$buddy-background;
     padding: 10px;
-    border-radius: 6px;
     margin: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     @include for-tablet{
         width: 50%;
     }
+    @include for-desktop{
+        width: fit-content;
+    }
 }
+.my-message{
+    align-items: flex-end; 
+    margin-left: auto;
+}
+.other-message {
+    align-items: flex-start;
+    margin-right: auto; 
+  }
 .chat-msg{
+    max-width:150px;
     height: fit-content;
     background: linear-gradient(180deg, #1d2727, #202028);
      color: #fff;
-     font-weight: 600;
-     border-radius: 6px;
+     font-weight: 400;
+     font-size: 13px;
+     border-radius: 20px;
      padding: 10px;
      overflow-wrap: break-word;
      white-space: normal;
-     box-shadow: 0px 2px 5px 0px #0b0b0b;
+     margin: 0;
  
     
 }
@@ -75,6 +89,14 @@
     border-radius: 30px;
     box-shadow: 0px 2px 5px 0px #0b0b0b;
 }
+
+.name-chat-container{
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    
+}
 .chat-name{
     font-weight: 600;
     color: #46c7e4;
@@ -83,49 +105,69 @@
     display: flex;
     justify-content: space-between;
     span{
-        font-weight: 600;
+        margin-left: 10px;
+        margin-top: 5px;
+        font-size: 10px;
+        font-weight: 400;
+        color: #C0C0C0;
     }
 }
 
 .message-btns-container{
-    width: 300px;
+    width: fit-content;
+    display: flex;
+    justify-content: flex-end;
+    @include for-tablet{
+        width: 100%;
+    }
 }
 .chat-btn{
-    width: 20%;
+    width: 30px;
     color: #fff;
     border: none;
+    padding: 0;
     &:hover{
         transform: scale(1.2);
         transition-duration: 500ms;
     }
     &__delete{
-        background: linear-gradient(180deg, #1d2727, #202028);
-        color:#b8270a ;
+      background: none;
+      color: #C0C0C0;
+      font-weight: 600;
     }
     &__edit{
         color:#56b7e8 ;
-        background: linear-gradient(180deg, #1d2727, #202028);
+        background: none;
     }
 }
 .new-message{
-    width: 300px;
+    width: 90%;
+    height: fit-content;
     display: flex;
+    justify-content: center;
     margin-bottom: 30px;
     margin-top: 5px;
     @include for-tablet{
         width: 50%;
     }
+    @include for-desktop{
+        width: 500px;
+    }
 }
 
 .chat-send-input{
-    background: linear-gradient(180deg, #1d2727, #202028);
-    width: 100%;
+    width: 250px;
     height: 30px;
+    flex-grow: 1;
+    background: linear-gradient(180deg, #1d2727, #202028);
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     padding-left: 10px;
     border-radius: 6px;
     border: none;
+   @include for-tablet{
+    width: 500px;
+   }
 }
 .chat-send-btn:hover{
     box-shadow: 0px 2px 5px 0px #1b82b1;
