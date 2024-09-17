@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import PoolPost from '../Pool-post/PoolPost';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { TbHandClick } from "react-icons/tb";
+
+
 
 
 
@@ -18,6 +21,7 @@ const buddyUrl ='http://localhost:8080';
       const [title, setTitle] = useState('');
       const [content, setContent] = useState('');
       const [location, setLocation]= useState('');
+      const [isVisible, setIsVisible] = useState(false);
       
       const getProfile = async ()=>{
       try{
@@ -70,7 +74,10 @@ const buddyUrl ='http://localhost:8080';
               console.error('Error creating post:', error);
             }
           };
-    
+
+          const showForm = ()=>{
+            setIsVisible(!isVisible);
+           }
 
   return (<>
     <div className='pool-container'>
@@ -81,8 +88,14 @@ const buddyUrl ='http://localhost:8080';
 
         <form  className='pool-form' onSubmit={handleCreatePost}>
         <img alt='profile_img' className='pool-avatar' src={`${buddyUrl}${poolData.profile_image}`} />
+           
                
                 <div className='pool-form-input'>
+                      <div className={`show-form ${isVisible ? 'form-visible' : 'form-hidden'}`}
+               onClick={showForm}>{isVisible ? 'X'
+                : 'keen for a plan ?'
+              } </div>
+                {isVisible && (<>
                 <input
                     type="text"
                     value={location}
@@ -105,8 +118,9 @@ const buddyUrl ='http://localhost:8080';
                     placeholder='What is the plan?'>
                 </input>
                 <button className='pool-form-btn'>POST</button>
+                </> )} 
                 </div>
-            
+          
         </form>
         <div>
 

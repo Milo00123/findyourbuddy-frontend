@@ -5,6 +5,8 @@ import axios from 'axios';
 import { formatInTimeZone } from 'date-fns-tz';
 import './PoolPost.scss';
 import { CiEdit } from "react-icons/ci";
+import { MdGroupAdd } from "react-icons/md";
+
 
 
 
@@ -23,6 +25,7 @@ function PoolPost({ posts, setPosts}) {
   const [isDeleting, setIsDeleting]= useState(null)
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
+
 
   const userId = parseInt(localStorage.getItem('userId'), 10);
   
@@ -101,7 +104,7 @@ const timePost = (dateString) => {
       };
 
 
-
+ 
 
 
 
@@ -186,7 +189,11 @@ const timePost = (dateString) => {
               </>
             )}
           </div>
-          <button className='pool-join-btn' onClick={() => handleJoinClick(post.id)}>Join</button>
+          <div className='join-btn-container'>
+          <button className='pool-join-btn' onClick={() => handleJoinClick(post.id)}>Join <MdGroupAdd />
+
+          </button>
+          </div>
         </div>
       ))}
       </div>

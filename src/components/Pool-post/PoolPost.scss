@@ -3,7 +3,7 @@
     height: fit-content;
     padding-bottom: 40px;
     padding-top: 40px;
-    background: #202028;
+    background: #12141d;
     @include for-tablet{
         height: fit-content;
         display: flex;
@@ -16,6 +16,8 @@
 
     }
     @include for-desktop{
+        width: 1000px;
+        margin: auto;
 
     }
 }
@@ -27,8 +29,8 @@
     margin-bottom: 20px;
     border: 1px;
     border-radius: 6px;
-    box-shadow: 0px 2px 5px 0px #1b82b1;
-    background: $buddy-background;
+    box-shadow: 0px 2px 5px 0px #1b2133;
+    background: #12141d;
 
     @include for-tablet{
         width: 40%;
@@ -60,10 +62,10 @@
     height: fit-content;
     border-radius: 6px;
     font-weight: 600;
-    color: #fff;
+    color: #C0C0C0	;
 }
 .pool-post-name{
-    color: #fff;
+    color: #46c7e4	;
     margin-left: 25px;
     margin-top: 10px;
     font-weight: 600;
@@ -129,7 +131,7 @@
     box-shadow: $buddy-shadow;
 }
 .pool-post-title{
-    color:#fff;
+    color: #C0C0C0	;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: pre-wrap;
@@ -157,7 +159,7 @@
 }
 .pool-post-comment{
     width: 90%;
-    color: #fff;
+    color: #C0C0C0	;
     border-radius: 4px;  
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -181,9 +183,12 @@
     resize: none;
     
 }
+.join-btn-container{
+    border-top: 1px solid #1b82b1 ;
+}
 .pool-join-btn:hover{
     cursor: pointer;
-    box-shadow: 0px 2px 5px 0px #1b82b1;
+    font-size: 20px;
     transform: scale(1.2);
     transition-duration: 500ms;
     
@@ -192,10 +197,7 @@
     width: 100%;
     height: 40px;
     background: none;
-    box-shadow: $buddy-shadow;
-    border-style: none;
-    margin-top: 20px;
-    border-radius: 6px;
-    color: #fff;
+    color: #C0C0C0;
     font-weight: 600;
+    border: none;
 }

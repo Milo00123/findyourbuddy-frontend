@@ -4,21 +4,21 @@
     background-position: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: $buddy-background;
+    background: #12141d;
 }
 .pool-title-container{
     width: 100%;
     padding-top: 20px;
+
 }
 .pool-title{
     width: 280px;
     margin: auto;
     font-weight: 700;
     text-align: center;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
     border-radius: 6px;
     color: #46c7e4;
-    background: linear-gradient(180deg, #1d2727, #202028);
+    background: #12141d;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color:#46c7e4;
     @include for-tablet{
@@ -30,6 +30,40 @@
         padding-top: 35px;
         text-align: center;
         font-size: 40px;
+    }
+}
+.show-form{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    background:#46c7e4 ;
+    border-radius: 20px;
+    color: $buddy-background;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        background: #1b82b1;
+        color: #fafafa;
+
+    }
+}
+.show-form.form-visible{
+    width: 80%;
+    justify-content: flex-end;
+    background: none;
+    color:#C0C0C0 ;
+    font-weight: 600;
+    border: none;
+    &:hover{
+        color: #fafafa;
+
     }
 }
 .pool-form{
@@ -44,6 +78,7 @@
     padding-top: 20px;
     box-shadow: 0px 2px 5px 0px #0b0b0b;
     border-radius: 6px;
+    background: #12141d;
     
     @include for-tablet{
         background-size: cover;
@@ -57,6 +92,9 @@
         border-color: #1b82b1;
         padding-bottom: 50px;
         
+    }
+    @include for-desktop{
+        width: 500px;
     }
  
 }
@@ -81,10 +119,9 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
     align-items: center;
     border-radius: 6px;
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    // box-shadow: 0px 2px 5px 0px #0b0b0b;
     background: $buddy-background;
     border: none;
     overflow: hidden;
@@ -96,13 +133,18 @@
 .pool-input{
     width: 80%;
     height: 20px;
-    margin-top: 10px;
     text-align: center;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
-    border-bottom: 1px solid #1b82b1 ;
-    box-shadow: $buddy-shadow;
-    border-radius: 6px;
+    background:#1b2133 ;
+    color: #fafafa;
+    border-radius: 5px;
     cursor: pointer;
+    &:hover{
+        background: #232e4a;
+
+    }
   
     @include for-tablet{
         height: 40px;
