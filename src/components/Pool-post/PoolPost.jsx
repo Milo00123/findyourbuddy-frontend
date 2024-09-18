@@ -7,6 +7,8 @@ import './PoolPost.scss';
 import { CiEdit } from "react-icons/ci";
 import { MdGroupAdd } from "react-icons/md";
 import { HiLocationMarker } from "react-icons/hi";
+import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
+
 
 
 
@@ -156,7 +158,7 @@ const timePost = (dateString) => {
             )}
           </div>
           <div className='inner-post-container'>
-            <img src={`${buddyUrl}${post.profile_image}`} alt={`${post.name}'s profile`} className="pool-post-img" />
+            <img src={post.profile_image ? `${buddyUrl}${post.profile_image}` : `${defaultImage}`} alt={`${post.name}'s profile`} className="pool-post-img" />
             <div className='location-timestamp-box'>
           
                 <div className='location-post'>{post.location} <HiLocationMarker className='location-icon'/></div>

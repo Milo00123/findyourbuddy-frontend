@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import './Profile.scss';
+import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 
 
 const buddyUrl = 'http://localhost:8080';
@@ -43,10 +43,12 @@ if (!profile) {
 <div className='profile-wrap'>
     < div key={profile.id} className='profile-box'>
        <div className='profile-inner-box'>
-       <img alt='profile_img'
-            className='profile-image' 
-            src={`${buddyUrl}${profile.profile_image}`}
-             />
+       <img 
+              alt='profile_img'
+              className='profile-image' 
+              src={profile.profile_image ? `${buddyUrl}${profile.profile_image}` : defaultImage} 
+            />
+            
               <div  className='profile-name'>Hi {profile.name},  Welcome back !</div>
               
        </div>

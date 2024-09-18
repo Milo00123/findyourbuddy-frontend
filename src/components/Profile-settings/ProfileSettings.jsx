@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import './ProfileSettings.scss'
 
 
+
 const buddyProfileUrl = 'http://localhost:8080/profile';
 function ProfileSettings() {
    const navigate = useNavigate();

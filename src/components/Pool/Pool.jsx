@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PoolPost from '../Pool-post/PoolPost';
 import axios from 'axios';
 import { useEffect } from 'react';
-
+import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 
 const buddyUrl ='http://localhost:8080';
 
@@ -83,7 +83,7 @@ const buddyUrl ='http://localhost:8080';
       </div>
 
         <form  className='pool-form' onSubmit={handleCreatePost}>
-        <img alt='profile_img' className='pool-avatar' src={`${buddyUrl}${poolData.profile_image}`} />
+        <img alt='profile_img' className='pool-avatar' src={poolData.profile_image ? `${buddyUrl}${poolData.profile_image}` : `${defaultImage}`}/>
            
                
                 <div className='pool-form-input'>

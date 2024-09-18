@@ -10,6 +10,9 @@
     align-items: center;
     justify-content: center;
     background: $buddy-background;
+    @include for-tablet{
+        padding-top: 20px;
+    }
 }
 
 .title-chat{
@@ -22,12 +25,12 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color:#46c7e4;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .chat-messages{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -38,6 +41,7 @@
     overflow: scroll;
     @include for-tablet{
         width: 50%;
+        height: 75vh;
         padding: 20px;
     }
     @include for-desktop{
