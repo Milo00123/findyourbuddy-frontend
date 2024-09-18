@@ -28,11 +28,17 @@ function PoolPost({ posts, setPosts, level}) {
   const [isDeleting, setIsDeleting]= useState(null)
   const [editTitle, setEditTitle] = useState('');
   const [editContent, setEditContent] = useState('');
-
-
+  const [activeButton, setActiveButton] = useState(null);
   const userId = parseInt(localStorage.getItem('userId'), 10);
-  
 
+  const handleButtonClick = (buttonName) => {
+
+    setActiveButton(buttonName);
+    setPosts([]);
+
+  };
+  
+   //Get all post
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axios.get(`${buddyUrl}/posts`);
@@ -45,11 +51,31 @@ function PoolPost({ posts, setPosts, level}) {
 
   useEffect(() => {
     fetchPosts();
-    const interval = setInterval(fetchPosts, 1000);
-    return () => clearInterval(interval);
+
   }, [fetchPosts]);
 
+  //get user post
+  const fetchUserPosts = useCallback(async () => {
+    try {
+      const response = await axios.get(`${buddyUrl}/posts/user/${userId}/posts`);
+      const sortedPosts = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      setPosts(sortedPosts);
+    } catch (error) {
+      console.error('Error fetching user posts:', error);
+    }
+  }, [setPosts, userId]);
 
+  // Fetch posts where the user has participated in chats
+  const fetchUserChatPosts = useCallback(async () => {
+
+    try {
+      const response = await axios.get(`${buddyUrl}/posts/user/${userId}/posts-with-messages`);
+      const sortedPosts = response.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      setPosts(sortedPosts);
+    } catch (error) {
+      console.error('Error fetching user chat posts:', error);
+    }
+  }, [setPosts, userId]);
 
 const isValidDate = (dateString) => {
   const date = new Date(dateString);
@@ -109,6 +135,36 @@ const timePost = (dateString) => {
 
   return ( <>
     <div className='pool-post-wrap'>
+
+      <div className='btn-post-wrap'>
+      <button className={`posts-btn ${activeButton === 'userPosts' ? 'active' : ''}`}
+           onClick={() => {
+            handleButtonClick('userPosts');
+            fetchUserPosts();
+          }}
+        >
+      
+          My Posts
+        </button>
+        <button className={`posts-btn ${activeButton === 'allPosts' ? 'active' : ''}`}
+          onClick={() => {
+            handleButtonClick('allPosts');
+            fetchPosts();
+          }}
+        >
+          All Posts
+        </button>
+    <button className={`posts-btn ${activeButton === 'chatPosts' ? 'active' : ''}`}
+      onClick={() => {
+        handleButtonClick('chatPosts');
+        fetchUserChatPosts();
+      }}
+    >
+          My Chats
+        </button>
+
+        </div>
+        
       {posts.map(post => (
         <div key={post.id} className='pool-post-container'>
           <div className='edit-delete-btns'>

@@ -5,6 +5,7 @@ import PoolPost from '../Pool-post/PoolPost';
 import axios from 'axios';
 import { useEffect } from 'react';
 import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
+import { HiLocationMarker } from "react-icons/hi";
 
 const buddyUrl ='http://localhost:8080';
 
@@ -98,11 +99,11 @@ const buddyUrl ='http://localhost:8080';
                     onChange={(e) => setLocation(e.target.value)} required
                     className='pool-input'
                     placeholder='location'>    
-                    <option value='' >Mandatory Location</option>
-                    <option value='Whistler'>Whistler</option>
-                    <option value='Squamish'>Squamish</option>
-                    <option value='Pemberton'>Pemberton</option>
-                    <option value='Somewhere else'>Somewhere else</option>           
+                    <option className='options-form-post' value='' >Mandatory Location 📍 </option>
+                    <option className='options-form-post' value='Whistler'>Whistler</option>
+                    <option className='options-form-post' value='Squamish'>Squamish</option>
+                    <option className='options-form-post' value='Pemberton'>Pemberton</option>
+                    <option className='options-form-post' value='Somewhere else'>Somewhere else</option>           
                  </select>
                 <input
                     type="text"

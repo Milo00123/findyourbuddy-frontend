@@ -121,7 +121,6 @@
     flex-direction: column;
     align-items: center;
     border-radius: 6px;
-    // box-shadow: 0px 2px 5px 0px #0b0b0b;
     background: $buddy-background;
     border: none;
     overflow: hidden;
@@ -130,25 +129,33 @@
     }
 
 }
+.options-form-post{
+    color: #fff;
+
+}
+
 .pool-input{
-    width: 80%;
-    height: 20px;
+    flex-grow: 1;
+    width: 100%;
+    height: 40px;
     text-align: center;
-    padding: 10px;
     margin-top: 10px;
     border: none;
-    background:#1b2133 ;
-    color: #fafafa;
-    border-radius: 5px;
+    border-bottom: 1px solid #46c7e4;
+    background-color:$buddy-background ;
+    color: #fff;
     cursor: pointer;
     &:hover{
-        background: #232e4a;
-
+    background-color: #0f252f;
+    }
+    &::placeholder{
+        color: #fafafa;
     }
   
     @include for-tablet{
         height: 40px;
-        width: 60%;
+        font-size: 18px;
+      
     }
     &__plan{
         height: 50px;
@@ -159,18 +166,18 @@
    
 }
 .pool-form-btn:hover{
-    box-shadow: 0px 2px 5px 0px #1b82b1;
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition-duration: 500ms;
+   font-size: 20px;
 }
 .pool-form-btn{
-    width: 80%;
+    width: 99%;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    background: linear-gradient(180deg, #040404, #5c5d5d);
-    box-shadow: 0px 2px 5px 0px #0b0b0b;
+    background:$buddy-background;
+    box-shadow: 0px 2px 5px 0px #46c7e4;
     color: #fff;
     font-weight: 600;
     border: none;
