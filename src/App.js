@@ -15,7 +15,7 @@ import Password from './components/Password/Password';
 import Header from './components/Header/Header';
 
 
-
+//c
 const isAuthenticated = () => {
   return !!localStorage.getItem('userId'); 
 };
