@@ -8,7 +8,7 @@ import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 import { useCallback } from 'react';
 
 
-const buddyUrl ='http://localhost:8080';
+const buddyUrl ='https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com';
 
       function Pool() {
 
