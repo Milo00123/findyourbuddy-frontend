@@ -6,7 +6,7 @@ import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
 
 
 
-const URL = 'http://localhost:8080/sign-up';
+const URL = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com/sign-up';
 function SignUp() {
 const navigate = useNavigate();
 const [username, setUsername] = useState('');

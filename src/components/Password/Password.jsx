@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Password.scss';
 import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
-const buddyProfileUrl = 'http://localhost:8080/profile';
+const buddyProfileUrl = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com/profile';
 
 function Password() {
     const navigate = useNavigate();

@@ -6,7 +6,7 @@ import { CiEdit } from "react-icons/ci";
 import './chat.scss';
 
 
-const buddyUrl = 'http://localhost:8080';
+const buddyUrl = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com';
 function Chat() {
  const {postId, userId} = useParams()
 

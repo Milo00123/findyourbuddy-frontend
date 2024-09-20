@@ -5,7 +5,7 @@ import './Profile.scss';
 import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 
 
-const buddyUrl = 'http://localhost:8080';
+const buddyUrl = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com';
 function Profile() {
   const userId = parseInt(localStorage.getItem('userId'), 10);
   const [profile, setProfile]=useState(null);

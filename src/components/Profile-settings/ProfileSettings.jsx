@@ -5,7 +5,7 @@ import './ProfileSettings.scss'
 
 
 
-const buddyProfileUrl = 'http://localhost:8080/profile';
+const buddyProfileUrl = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com/profile';
 function ProfileSettings() {
    const navigate = useNavigate();
    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);

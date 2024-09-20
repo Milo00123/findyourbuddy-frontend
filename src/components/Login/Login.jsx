@@ -8,7 +8,7 @@ import { PiEyeLight, PiEyeSlash  } from "react-icons/pi";
 
 
 
-const findyourbuddy = 'http://localhost:8080/';
+const findyourbuddy = 'https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com';
 function Login() {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
@@ -44,7 +44,7 @@ function Login() {
         return;
       }
       try {
-        const response = await axios.post(`${findyourbuddy}profile/login`, {
+        const response = await axios.post(`${findyourbuddy}/profile/login`, {
           email: email,
           password: password
         },{ withCredentials: true });
