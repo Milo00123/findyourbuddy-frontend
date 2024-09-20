@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './Profile.scss';
 import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 
@@ -12,16 +12,16 @@ function Profile() {
   const [loading, setLoading] = useState(true);
 
 
-  const fetchProfile = async ()=>{
-    try{
-      const response = await axios.get(`${buddyUrl}/profile/${userId}`)
-      setProfile(response.data)
-    } catch(error){
-      console.error('error fetching profile', error)
-    }finally {
+  const fetchProfile = useCallback(async () => {
+    try {
+      const response = await axios.get(`${buddyUrl}/profile/${userId}`);
+      setProfile(response.data);
+    } catch (error) {
+      console.error('Error fetching profile', error);
+    } finally {
       setLoading(false);
     }
-           }; 
+  }, [userId]); 
 
 
 useEffect(() => {
@@ -29,7 +29,7 @@ useEffect(() => {
         fetchProfile(userId);
     }
     
-}, [userId]);
+}, [userId, fetchProfile]);
 
 if (loading) {
     return <div>Loading...</div>;

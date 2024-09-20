@@ -5,7 +5,8 @@ import PoolPost from '../Pool-post/PoolPost';
 import axios from 'axios';
 import { useEffect } from 'react';
 import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
-import { HiLocationMarker } from "react-icons/hi";
+import { useCallback } from 'react';
+
 
 const buddyUrl ='http://localhost:8080';
 
@@ -20,22 +21,22 @@ const buddyUrl ='http://localhost:8080';
       const [location, setLocation]= useState('');
       const [isVisible, setIsVisible] = useState(false);
       
-      const getProfile = async ()=>{
-      try{
-        const response = await axios.get(`${buddyUrl}/profile/${userId}`)
-        setPoolData(response.data)
-      } catch(error){
-        console.error('error fetching profile', error)
-      }finally {
-        setLoading(false);
-      }
-             }; 
+      const getProfile = useCallback(async () => {
+        try {
+          const response = await axios.get(`${buddyUrl}/profile/${userId}`);
+          setPoolData(response.data);
+        } catch (error) {
+          console.error('error fetching profile', error);
+        } finally {
+          setLoading(false);
+        }
+      }, [userId]); 
 
             useEffect(() => {
               if (userId) {
                   getProfile(userId);
               }
-          }, [userId]);  
+          }, [userId, getProfile]);  
 
           
           if (loading) 
