@@ -17,6 +17,9 @@ function Header() {
           setIsVisible(!isVisible)
 
         }
+        const closeMenu = () => {
+          setIsVisible(false);
+        };
 
         const handleLogout = () => {
           localStorage.removeItem('userId');
@@ -42,18 +45,21 @@ function Header() {
             </div>
         <ul className={`main-nav-container ${isVisible ? 'visible' : ''}`}>
           <NavLink
+          onClick={closeMenu}
             to={`/pool/${userId}`}
             className={({ isActive }) => `main-nav-container__link btn ${isActive ? 'active' : ''}`}
             >
             Pool
           </NavLink>
           <NavLink
+          onClick={closeMenu}
             to={`/profile/${userId}`}
             className='main-nav-container__link btn'
             >
             Profile
           </NavLink>
             <NavLink
+            onClick={closeMenu}
               to={`/profile/${userId}/Profile-Settings`}
               className={({ isVisible }) => `main-nav-container__link btn ${isVisible ? 'active' : ''}`}
               >

@@ -32,13 +32,13 @@ const messagesEndRef = useRef(null);
   }, [postId, userId]);
 
    
-  useEffect(() => {
-    scrollToBottom();
-  }, [message]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [message]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
    const handleSendMessage = async ()=> {
     if (newMessage.trim() === '') { 
