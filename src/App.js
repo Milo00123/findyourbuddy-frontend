@@ -6,7 +6,6 @@ import { Navigate } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SignUp from './components/Signup/SignUp';
 import Chat from './components/Chat/chat';
-// import Footer from './components/Footer/Footer';
 import Profile from './components/Profile/Profile';
 import ProfileSettings from './components/Profile-settings/ProfileSettings';
 import NotFound from './components/Not-found/NotFound';

@@ -9,16 +9,6 @@ import { MdGroupAdd } from "react-icons/md";
 import { HiLocationMarker } from "react-icons/hi";
 import defaultImage from '../../Assets/Logo/Find your Buddy (6).png';
 
-
-
-
-
-
-
-
-
-
-
 const buddyUrl ='https://findyourbuddy-server-f2e3d00ed8ad.herokuapp.com';
 
 function PoolPost({ posts, setPosts, level}) {
@@ -38,7 +28,6 @@ function PoolPost({ posts, setPosts, level}) {
 
   };
   
-   //Get all post
   const fetchPosts = useCallback(async () => {
     try {
       const response = await axios.get(`${buddyUrl}/posts`);
@@ -54,7 +43,6 @@ function PoolPost({ posts, setPosts, level}) {
 
   }, [fetchPosts]);
 
-  //get user post
   const fetchUserPosts = useCallback(async () => {
     try {
       const response = await axios.get(`${buddyUrl}/posts/user/${userId}/posts`);
@@ -65,7 +53,6 @@ function PoolPost({ posts, setPosts, level}) {
     }
   }, [setPosts, userId]);
 
-  // Fetch posts where the user has participated in chats
   const fetchUserChatPosts = useCallback(async () => {
 
     try {
