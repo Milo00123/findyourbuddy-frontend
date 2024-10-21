@@ -1,4 +1,4 @@
-CRUD
+LINK
 https://67006afc58a34936a8cb76e7--findyourbuddy.netlify.app/
 
 FindYourBuddy is an app designed to connect riders visiting the Sea to Sky area who are looking to meet others for mountain biking or skiing/snowboarding. As both a Mountain Bike and Snowboard Instructor, I’ve seen many visitors come to this beautiful place, excited to ride, but not knowing anyone to join them. That’s why I created this app — to help people find riding buddies and make the most of their experience
